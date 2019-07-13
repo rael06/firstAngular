@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { DonneesService } from '../../services/donnees.service';
 
 @Component({
 	selector: "app-utilisateur",
@@ -7,9 +8,32 @@ import { Component, OnInit } from "@angular/core";
 })
 export class UtilisateurComponent implements OnInit {
 	
-	nom = "Rael"
+	nom: string;
+	age: number;
+	email: string;
+	hobby: hobby;
 	
-	constructor() { }
+	constructor(private donnees: DonneesService) { 
+		this.nom = "Rael";
+		this.age = 36;
+		this.email = "rael06@hotmail.fr";
+		this.hobby = {
+			hobbyUn: 'Basket',
+			hobbyDeux: 'lire',
+			hobbyTrois: 'apprendre'
+		}
+	}
 
 	ngOnInit() {}
+
+	onClick() {
+		alert("Aucune information supplémentaire pour le moment");
+	}
+
+}
+
+interface hobby {
+	hobbyUn: string;
+	hobbyDeux: string;
+	hobbyTrois: string;
 }
